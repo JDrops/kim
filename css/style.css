@@ -1,0 +1,87 @@
+/* Full-page reset */
+  
+ /* Curtain Panels */
+.curtain {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    z-index: 1000;
+    background-color: #222;
+    transition: transform .5s ease-in-out;
+  }
+  #logo{
+    position: absolute;
+    bottom: 0;
+  }
+  
+  /* Left & Right Curtains */
+  .curtain.left, .curtain.right {
+    width: 50%;
+  }
+  
+  .curtain.left { left: 0; background: url(../img/left-01.png) no-repeat right center; background-size: cover;}
+  .curtain.right { right: 0; background: url(../img/right-01.png) no-repeat left center; background-size: cover;}
+  
+  /* Center Curtain (full width initially) */
+  .curtain.center {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    z-index: 1050;
+    overflow: hidden;
+    transition: transform .6s ease-in-out;
+  }
+  
+  .curtain.center.erase {
+    /* background: linear-gradient(rgba(0,0,0,0), black); */
+    transform: translateY(100%);
+  }
+  .curtain.center.erase.hidden{
+    display: none;
+  }
+  
+  .curtain.open.left {
+    transform: translateX(-100%);
+  }
+  
+  .curtain.open.right {
+    transform: translateX(100%);
+  }
+  
+  /* Tap message */
+  .tap-message {
+    width: 75%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 2rem;
+    /* font-weight: bold; */
+    z-index: 1100;
+    pointer-events: none;
+    text-align: center;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+  }
+  
+  .tap-message.hidden {
+    opacity: 0;
+  }
+  
+  /* Content behind the curtain */
+  .content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* background-color: #f0f0f0; */
+    text-align: center;
+  }
+  
