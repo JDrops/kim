@@ -1,16 +1,18 @@
 $(document).ready(function() {
     const centerSound = document.getElementById('center-sound');
+    const backSound = document.getElementById('backsound');
     
     $(document).one('click touchstart', function() {
       // Hide tap message
       $('.tap-message').addClass('hidden');
   
       // Play sound only for center curtain
-        // centerSound.currentTime = 5;
-        console.log(`Current time is: ${parseFloat(centerSound.currentTime)} seconds`);
+        centerSound.currentTime = 0;
+        // console.log(`Current time is: ${parseFloat(centerSound.currentTime)} seconds`);
         centerSound.play();
       // Erase center curtain first
       $('.curtain.center').addClass('erase');
+      backSound.play();
       
       // After center curtain erases, open left & right curtains
       setTimeout(function() {
@@ -21,19 +23,6 @@ $(document).ready(function() {
       }, 1000); // Match the center curtain transition duration
     });
 
-    function closeCurtain() {
-        $('.curtain.left').removeClass('open');
-        $('.curtain.right').removeClass('open');
-    
-        setTimeout(function() {
-          $('.curtain.center').removeClass('erase');
-          $('.tap-message').removeClass('hidden');
-          $('.close-btn').hide();
-    
-          centerSound.currentTime = 0;
-          centerSound.play();
-        }, 1000); // wait for left/right curtains to slide back
-      }
 
       $('.rsvp-yes').click(function() {
         alert('Thank you for confirming! We look forward to celebrating with you.');

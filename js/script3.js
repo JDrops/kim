@@ -46,4 +46,4 @@ function startTyping() {
 // Start typing animation
 setTimeout(startTyping, 500);
 
-$('.revealBtn').addCss({'opacity': 1})
+$('.revealBtn').css({'opacity': 1})
